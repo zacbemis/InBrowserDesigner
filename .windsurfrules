@@ -1,0 +1,101 @@
+# Windsurf Rules - Portfolio Website
+
+## Project Overview
+This is a personal portfolio website built with Next.js 15, React 19, TypeScript, and Tailwind CSS 4. The site showcases projects, professional timeline, and contact information.
+
+## Tech Stack
+- **Framework**: Next.js 15.5.4 (App Router)
+- **UI Library**: React 19.2.0
+- **Language**: TypeScript 5.9.3
+- **Styling**: Tailwind CSS 4.1.17
+- **Linting**: ESLint 9.37.0 with Next.js config
+
+## Code Style & Conventions
+
+### TypeScript
+- Use TypeScript for all components and utilities
+- Prefer `interface` over `type` for object shapes
+- Use explicit return types for functions
+- Keep `strict` mode disabled as per current tsconfig
+- Leverage path aliases with `baseUrl: "./app"` for cleaner imports
+
+### React & Next.js
+- Use **App Router** (not Pages Router)
+- All components should be **functional components** with hooks
+- Use `"use client"` directive only when necessary (interactivity, hooks, browser APIs)
+- Server Components by default for better performance
+- File naming: lowercase with hyphens (e.g., `navigation-bar.tsx`)
+- Component naming: PascalCase (e.g., `NavigationBar`)
+
+### Component Structure
+```typescript
+// 1. Imports (external, then internal)
+// 2. Type definitions
+// 3. Component definition
+// 4. Export
+```
+
+### Styling with Tailwind
+- Use Tailwind utility classes directly in JSX
+- Follow mobile-first responsive design
+- Use semantic color names when possible
+- Prefer composition over custom CSS
+- Keep `globals.css` minimal (only `@import "tailwindcss"` and global resets)
+
+### File Organization
+```
+app/
+├── (routes)/
+│   ├── page.tsx          # Home page
+│   ├── timeline/
+│   │   └── page.tsx      # Timeline page
+│   └── projects/
+│       └── page.tsx      # Projects page
+├── components/
+│   ├── navigation.tsx    # Navigation component
+│   └── footer.tsx        # Footer component
+├── layout.tsx            # Root layout
+└── globals.css           # Global styles
+```
+
+### Best Practices
+- **Performance**: Optimize images with `next/image`, lazy load when appropriate
+- **Accessibility**: Use semantic HTML, proper ARIA labels, keyboard navigation
+- **SEO**: Add metadata to each page using Next.js metadata API
+- **Responsiveness**: Test on mobile, tablet, and desktop breakpoints
+- **Code Quality**: Run `npm run lint` before commits
+- **Git**: Write clear, descriptive commit messages
+
+### Component Guidelines
+- Keep components small and focused (single responsibility)
+- Extract reusable logic into custom hooks
+- Use composition over prop drilling
+- Prefer named exports for components
+- Add JSDoc comments for complex components
+
+### State Management
+- Use React hooks (`useState`, `useEffect`, etc.) for local state
+- Consider Context API for shared state if needed
+- Avoid prop drilling beyond 2-3 levels
+
+### Error Handling
+- Add error boundaries for critical sections
+- Provide user-friendly error messages
+- Log errors appropriately (client vs server)
+
+### Testing (Future)
+- Write unit tests for utility functions
+- Add integration tests for critical user flows
+- Use React Testing Library for component tests
+
+## Development Workflow
+1. Run `npm run dev` for local development
+2. Check `npm run lint` before committing
+3. Build with `npm run build` to verify production readiness
+4. Preview production build with `npm run start`
+
+## Notes
+- Using Tailwind CSS v4 (latest) with PostCSS plugin
+- No custom Tailwind config file (using defaults with CSS-based configuration)
+- TypeScript baseUrl set to `./app` for cleaner imports
+- React 19 and Next.js 15 are latest versions with new features
