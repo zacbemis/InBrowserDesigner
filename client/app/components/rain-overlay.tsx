@@ -2,7 +2,7 @@
 
 import React from "react";
 
-const DROP_COUNT = 80;
+const DROP_COUNT = 50;
 
 interface RainDrop {
   readonly id: number;
@@ -35,7 +35,7 @@ const drops: ReadonlyArray<RainDrop> = (() => {
 
 export default function RainOverlay(): React.ReactElement {
   return (
-    <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+    <div className="pointer-events-none fixed inset-0 z-[5] overflow-hidden">
       {drops.map((drop) => (
         <span
           key={drop.id}
