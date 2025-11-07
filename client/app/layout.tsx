@@ -1,7 +1,8 @@
 import React from "react";
 import "./globals.css";
-import Navigation from "./components/navigation";
 import RainOverlay from "./components/rain-overlay";
+import Footer from "./components/footer";
+import Navigation from "./components/navigation";
 import yosemiteBackground from "./public/assets/yosemite.png";
 
 export default function RootLayout({
@@ -19,6 +20,7 @@ export default function RootLayout({
         <div className="relative z-10 flex min-h-screen flex-col">
           <Navigation />
           <div className="flex-1">{children}</div>
+          <Footer />
         </div>
       </body>
     </html>

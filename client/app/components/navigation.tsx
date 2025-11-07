@@ -119,8 +119,8 @@ export default function Navigation(): React.ReactElement {
               }}
               onMouseEnter={handleMouseEnter(index)}
               onFocus={handleMouseEnter(index)}
-              className={`relative z-10 flex-1 whitespace-nowrap px-4 py-1.5 text-center text-sm font-medium transition-colors duration-200 ${
-                isActive ? "text-white" : "text-white/70 hover:text-white"
+              className={`relative z-10 flex-1 whitespace-nowrap px-4 py-1.5 text-center text-xs uppercase tracking-[0.12em] transition-colors duration-200 ${
+                isActive ? "text-white" : "text-white/60 hover:text-white/80"
               }`}
             >
               {link.label}
