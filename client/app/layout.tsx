@@ -1,8 +1,8 @@
 import React from "react";
 import "./globals.css";
-import RainOverlay from "./components/rain-overlay";
 import Footer from "./components/footer";
 import Navigation from "./components/navigation";
+import ShootingStarsOverlay from "./components/shooting-stars-overlay";
 import yosemiteBackground from "./public/assets/yosemite.png";
 
 export default function RootLayout({
@@ -16,10 +16,10 @@ export default function RootLayout({
         className="min-h-screen bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${yosemiteBackground.src})` }}
       >
-        <RainOverlay />
+        <ShootingStarsOverlay />
         <div className="relative z-10 flex min-h-screen flex-col">
           <Navigation />
-          <div className="flex-1">{children}</div>
+          <main className="flex-1">{children}</main>
           <Footer />
         </div>
       </body>
