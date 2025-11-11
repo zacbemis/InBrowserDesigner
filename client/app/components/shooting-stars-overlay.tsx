@@ -48,25 +48,36 @@ const createShootingStar = (id: number): ShootingStar => {
 };
 
 export default function ShootingStarsOverlay(): ReactElement {
-  const [star, setStar] = useState<ShootingStar>(() => createShootingStar(0));
-  const [intervalDelay, setIntervalDelay] = useState<number>(randomBetween(6, 12) * 1000);
+  const [star, setStar] = useState<ShootingStar | null>(null);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setStar((previous) => createShootingStar(previous.id + 1));
-      setIntervalDelay(randomBetween(6, 12) * 1000);
-    }, intervalDelay);
+    let timeoutId: ReturnType<typeof setTimeout> | undefined;
 
-    return () => clearInterval(interval);
-  }, [intervalDelay]);
+    const spawnStar = (id: number): void => {
+      setStar(createShootingStar(id));
+      const nextDelay = randomBetween(6, 12) * 1000;
+      timeoutId = setTimeout(() => spawnStar(id + 1), nextDelay);
+    };
 
-  const gradient = useMemo(() => {
-    return star.direction === "ltr"
-      ? "linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.95))"
-      : "linear-gradient(270deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.95))";
-  }, [star.direction]);
+    spawnStar(0);
 
-  const style = useMemo(() => {
+    return () => {
+      if (timeoutId !== undefined) {
+        clearTimeout(timeoutId);
+      }
+    };
+  }, []);
+
+  const style = useMemo((): ShootingStarStyle | undefined => {
+    if (!star) {
+      return undefined;
+    }
+
+    const gradient =
+      star.direction === "ltr"
+        ? "linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.95))"
+        : "linear-gradient(270deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.95))";
+
     return {
       top: `${star.top}%`,
       left: `${star.left}%`,
@@ -81,11 +92,11 @@ export default function ShootingStarsOverlay(): ReactElement {
       "--travel-y": star.travelY,
       "--star-angle": `${star.angle}deg`,
     } satisfies ShootingStarStyle;
-  }, [gradient, star.angle, star.direction, star.length, star.left, star.thickness, star.top, star.travelX, star.travelY, star.duration, star.delay]);
+  }, [star]);
 
   return (
     <div className="pointer-events-none fixed inset-x-0 top-0 z-[6] h-[50vh] overflow-hidden">
-      <span key={star.id} className="shooting-star block" style={style} />
+      {star && style && <span key={star.id} className="shooting-star block" style={style} />}
     </div>
   );
 }
