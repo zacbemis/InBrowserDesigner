@@ -82,7 +82,7 @@ interface ProjectsProps {
 
 export default function Projects({ projects }: ProjectsProps): ReactElement {
   return (
-    <div className="grid w-full max-w-6xl auto-rows-fr grid-cols-1 gap-8 md:grid-cols-2">
+    <div className="grid w-full max-w-4xl auto-rows-fr grid-cols-1 gap-8 md:grid-cols-2">
       {projects.map((project) => (
         <ProjectCard key={project.id} project={project} />
       ))}
