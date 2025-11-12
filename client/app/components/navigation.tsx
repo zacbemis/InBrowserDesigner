@@ -57,14 +57,16 @@ export default function Navigation(): React.ReactElement {
       }
     };
 
-    handleHashChange();
-    window.addEventListener("hashchange", handleHashChange);
     window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener("hashchange", handleHashChange);
       window.removeEventListener("scroll", handleScroll);
     };
+  }, []);
+
+  useEffect(() => {
+    // Set initial active section to About
+    setActiveHash("#about");
   }, []);
 
   const setIndicatorFromIndex = useCallback((index: number | null) => {
@@ -153,7 +155,6 @@ export default function Navigation(): React.ReactElement {
                 const target = document.querySelector(link.href);
                 if (target) {
                   target.scrollIntoView({ behavior: "smooth" });
-                  window.history.pushState(null, "", link.href);
                   setActiveHash(link.href);
                 }
               }}

@@ -31,7 +31,7 @@ import pythonML from "./public/assets/pythonML.png";
 import CSUS from "./public/assets/CSUS.png";
 
 export const metadata: Metadata = {
-  title: "Home | Zac Bemis",
+  title: "Portfolio | Zac Bemis",
   description:
     "Welcome to Zac Bemis's portfolio. Explore my projects, experience timeline, and technical skills in software engineering.",
 };
