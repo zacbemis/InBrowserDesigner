@@ -5,6 +5,8 @@ export interface Experience {
   readonly id: number;
   readonly image: StaticImageData | string;
   readonly title: string;
+  readonly company: string;
+  readonly date: string;
   readonly description: string;
 }
 
@@ -35,6 +37,10 @@ function ExperienceCard({ experience, side }: ExperienceCardProps): ReactElement
       <h3 className="mt-4 text-lg uppercase tracking-[0.15em] text-white/90 sm:text-xl">
         {experience.title}
       </h3>
+
+      <p className="mt-1 text-left text-xs text-white/60 sm:text-sm">
+        {experience.company}
+      </p>
 
       <div className="my-3 h-px w-full bg-white/20" />
 
@@ -86,8 +92,12 @@ export default function Timeline({ experiences }: TimelineProps): ReactElement {
                 />
               </div>
 
-              {/* Empty space on opposite side */}
-              <div className="w-1/2" />
+              {/* Date on opposite side */}
+              <div className="w-1/2 flex justify-center">
+                <p className="text-sm uppercase tracking-[0.15em] text-white/70 sm:text-base">
+                  {experience.date}
+                </p>
+              </div>
             </div>
           );
         })}

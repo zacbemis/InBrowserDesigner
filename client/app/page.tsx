@@ -1,35 +1,17 @@
 import type { ReactElement } from "react";
 import Timeline, { type Experience } from "./components/timeline";
+import ecaMobile from "./public/assets/ECAMobile.png";
 
 // Sample experience data - replace with your actual experiences
 const experiences: Experience[] = [
   {
     id: 1,
-    image: "/placeholder-1.jpg",
+    image: ecaMobile,
     title: "Software Engineer",
+    company: "M28 Global, Inc.",
+    date: "Jan 2025 - Aug 2025",
     description:
-      "Developed and maintained full-stack applications using modern web technologies. Collaborated with cross-functional teams to deliver high-quality software solutions.",
-  },
-  {
-    id: 2,
-    image: "/placeholder-2.jpg",
-    title: "Computer Science Student",
-    description:
-      "Studying Computer Science at California State University, Sacramento. Focusing on algorithms, data structures, and software engineering principles.",
-  },
-  {
-    id: 3,
-    image: "/placeholder-3.jpg",
-    title: "Open Source Contributor",
-    description:
-      "Contributing to various open-source projects, learning from the community, and giving back through code contributions and documentation improvements.",
-  },
-  {
-    id: 4,
-    image: "/placeholder-4.jpg",
-    title: "Research Assistant",
-    description:
-      "Assisted in research projects exploring new technologies and methodologies. Conducted experiments and analyzed data to support academic publications.",
+      "Led a project developing a financial planning app for the web, increasing projected user growth by 50%. Engineered secure, scalable features with Node.js, Express, TypeScript, React, MongoDB, and JWT authentication, delivering an MVP 2 weeks ahead of schedule. Partnered with the client and team in an Agile workflow to iterate on user flows and refine product direction, resulting in 20% more efficient user flow.",
   },
 ];
 
