@@ -18,7 +18,7 @@ interface IndicatorState {
 const INDICATOR_INSET = 6;
 
 const NAV_LINKS = [
-  { href: "/", label: "About" },
+  { href: "/about", label: "About" },
   { href: "/timeline", label: "Timeline" },
   { href: "/projects", label: "Projects" },
 ];
