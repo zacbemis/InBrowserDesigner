@@ -29,10 +29,10 @@ const contactLinks: ContactLink[] = [
 
 export default function Footer(): ReactElement {
   return (
-    <footer className="fixed bottom-0 left-0 right-0 z-50 flex justify-center pb-3">
+    <footer className="fixed bottom-0 left-0 right-0 z-50 flex justify-center py-3">
       <div className="flex w-full max-w-4xl flex-col gap-4 px-4 text-sm text-white/80">
         <div
-          className="flex flex-col gap-3 rounded-3xl border border-white/20 px-6 py-4 shadow-lg sm:flex-row sm:items-center sm:justify-between"
+          className="flex flex-col gap-3 rounded-3xl border border-white/20 px-6 py-3 shadow-lg sm:flex-row sm:items-center sm:justify-between"
           style={{
             background: "rgba(255, 255, 255, 0.05)",
             backdropFilter: "blur(20px)",

@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import type { ReactElement } from "react";
 
 const StarIcon = (): ReactElement => (

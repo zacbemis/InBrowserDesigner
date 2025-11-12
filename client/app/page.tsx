@@ -1,4 +1,4 @@
-import type { ReactElement } from "react";
+import type { Metadata } from "next";
 import Timeline, { type Experience } from "./components/timeline";
 import Projects, { type Project } from "./components/projects";
 import {
@@ -29,6 +29,12 @@ import diamondMan from "./public/assets/diamondMan.png";
 import gameOfLife from "./public/assets/gameOfLife.png";
 import pythonML from "./public/assets/pythonML.png";
 import CSUS from "./public/assets/CSUS.png";
+
+export const metadata: Metadata = {
+  title: "Home | Zac Bemis",
+  description:
+    "Welcome to Zac Bemis's portfolio. Explore my projects, experience timeline, and technical skills in software engineering.",
+};
 
 // Sample experience data - replace with your actual experiences
 const experiences: Experience[] = [
@@ -105,7 +111,7 @@ const projects: Project[] = [
   },
 ];
 
-export default function HomePage(): ReactElement {
+export default function HomePage() {
   return (
     <main className="flex flex-col">
       {/* About Section */}
