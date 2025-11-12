@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import type { CSSProperties, ReactElement } from "react";
 
 interface ShootingStar {
@@ -68,31 +68,25 @@ export default function ShootingStarsOverlay(): ReactElement {
     };
   }, []);
 
-  const style = useMemo((): ShootingStarStyle | undefined => {
-    if (!star) {
-      return undefined;
-    }
-
-    const gradient =
-      star.direction === "ltr"
-        ? "linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.95))"
-        : "linear-gradient(270deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.95))";
-
-    return {
-      top: `${star.top}%`,
-      left: `${star.left}%`,
-      animationDelay: `${star.delay}s`,
-      animationDuration: `${star.duration}s`,
-      animationIterationCount: 1,
-      width: `${star.length}px`,
-      height: `${star.thickness}px`,
-      transformOrigin: star.direction === "ltr" ? "center right" : "center left",
-      backgroundImage: gradient,
-      "--travel-x": star.travelX,
-      "--travel-y": star.travelY,
-      "--star-angle": `${star.angle}deg`,
-    } satisfies ShootingStarStyle;
-  }, [star]);
+  const style: ShootingStarStyle | undefined = star
+    ? {
+        top: `${star.top}%`,
+        left: `${star.left}%`,
+        animationDelay: `${star.delay}s`,
+        animationDuration: `${star.duration}s`,
+        animationIterationCount: 1,
+        width: `${star.length}px`,
+        height: `${star.thickness}px`,
+        transformOrigin: star.direction === "ltr" ? "center right" : "center left",
+        backgroundImage:
+          star.direction === "ltr"
+            ? "linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.95))"
+            : "linear-gradient(270deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.95))",
+        "--travel-x": star.travelX,
+        "--travel-y": star.travelY,
+        "--star-angle": `${star.angle}deg`,
+      }
+    : undefined;
 
   return (
     <div className="pointer-events-none fixed inset-x-0 top-0 z-[6] h-[50vh] overflow-hidden">
