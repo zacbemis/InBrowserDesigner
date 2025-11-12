@@ -28,11 +28,21 @@ import spotlight from "./public/assets/Spotlight.png";
 import diamondMan from "./public/assets/diamondMan.png";
 import gameOfLife from "./public/assets/gameOfLife.png";
 import pythonML from "./public/assets/pythonML.png";
+import CSUS from "./public/assets/CSUS.png";
 
 // Sample experience data - replace with your actual experiences
 const experiences: Experience[] = [
   {
     id: 1,
+    image: CSUS,
+    title: "Bachelor of Science, Computer Science",
+    company: "California State University, Sacramento",
+    date: "Aug 2022 - Dec 2026",
+    description:
+      "Studied computer science at California State University, Sacramento and maintained a 3.5 GPA. Member of the Data Structures and Algorithms club and climbing club.",
+  },
+  {
+    id: 2,
     image: ecaMobile,
     title: "Software Engineer Intern",
     company: "M28 Global, Inc.",
@@ -49,16 +59,16 @@ const projects: Project[] = [
     image: carRepair,
     title: "Car Repair App",
     description:
-      "Directed a team of 5 engineers in an Agile environment, establishing the development workflow, Git strategy, and code review process to stramline collaboration. Implemented serverside-rendering, reducing load times by 40% and improving user experience. Utilized JWT authentication, allowing for stateless user management and improved scalability.",
+      "Directed a team of 5 engineers in an Agile environment, establishing the development workflow, Git strategy, and code review process to streamline collaboration. Implemented server-side rendering, reducing load times by 40% and improving user experience. Utilized JWT authentication, allowing for stateless user management and improved scalability.",
     githubUrl:
-      "https://github.com/alirdin30/CSC-131-Pit-Stop-Programmers-Spring-2025github.com/zacb/",
+      "https://github.com/alirdin30/CSC-131-Pit-Stop-Programmers-Spring-2025",
   },
   {
     id: 2,
     image: climbingApp,
     title: "SystemBoard",
     description:
-      "Designed a scalable architecture capable of reliably serving thousands of concurrent users.Integrated and optimized a Node.js server, speeding up API response times by 25%.",
+      "Designed a scalable architecture capable of reliably serving thousands of concurrent users. Integrated and optimized a Node.js server, speeding up API response times by 25%.",
     websiteUrl: "https://systemboard.io",
   },
   {
@@ -88,9 +98,9 @@ const projects: Project[] = [
   {
     id: 6,
     image: pythonML,
-    title: "Stock Market predictor",
+    title: "Stock Market Predictor",
     description:
-      "Implemented machine learning algorithms like random forest and linear regression in Python using Scikit-learn, NumPy, and Pandas to forecast stock trends with visual insights from Matplotlib and Seaborn.Increased model accuracy by 10% through iterating feature sets and combining and optimizing ML algorithms.",
+      "Implemented machine learning algorithms like random forest and linear regression in Python using Scikit-learn, NumPy, and Pandas to forecast stock trends with visual insights from Matplotlib and Seaborn. Increased model accuracy by 10% through iterating feature sets and combining and optimizing ML algorithms.",
     githubUrl: "https://github.com/zacbemis/VFA",
   },
 ];
