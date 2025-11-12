@@ -23,16 +23,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className="min-h-screen bg-cover bg-center bg-no-repeat"
+        className="min-h-screen bg-cover bg-center bg-fixed bg-no-repeat"
         style={{ backgroundImage: `url(${yosemiteBackground.src})` }}
       >
         {weatherMode === "stars" ? <ShootingStarsOverlay /> : <RainOverlay />}
         <WeatherToggle mode={weatherMode} onToggle={toggleWeather} />
-        <div className="relative z-10 flex min-h-screen flex-col">
-          <Navigation />
-          <main className="flex-1">{children}</main>
-          <Footer />
-        </div>
+        <Navigation />
+        <main className="relative z-10">{children}</main>
+        <Footer />
       </body>
     </html>
   );

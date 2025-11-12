@@ -22,12 +22,12 @@ export default function HomePage(): ReactElement {
 
           <div className="my-6 h-px w-full bg-white/20" />
 
-          <p className="text-center text-base leading-relaxed text-white/80 sm:text-lg">
+          <p className="text-left text-base leading-relaxed text-white/80 sm:text-lg">
             I am a software engineer and computer science student at California
-            State University, Sacramento. Software engineering gives me the outlet
-            to be creative and solve problems in an ever expanding field. I also
-            love studying philosophy, math, and physics. In my spare time I enjoy
-            reading, rock climbing, and cycling.
+            State University, Sacramento. Software engineering gives me the
+            outlet to be creative and solve problems in an ever expanding field.
+            I also love studying philosophy, math, and physics. In my spare time
+            I enjoy reading, rock climbing, and cycling.
           </p>
         </div>
       </section>
