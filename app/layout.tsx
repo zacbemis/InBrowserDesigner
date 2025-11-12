@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Metadata } from "next";
 import "./globals.css";
 import Providers from "./providers";
@@ -32,10 +33,18 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body
-        className="min-h-screen bg-cover bg-center bg-fixed bg-no-repeat"
-        style={{ backgroundImage: `url(${yosemiteBackground.src})` }}
-      >
+      <body className="relative min-h-screen overflow-x-hidden bg-black text-white">
+        <div className="pointer-events-none fixed inset-0 -z-10 h-screen w-full">
+          <Image
+            src={yosemiteBackground}
+            alt="Yosemite valley at dusk"
+            fill
+            priority
+            placeholder="blur"
+            className="object-cover object-center"
+            style={{ objectFit: "cover" }}
+          />
+        </div>
         <Providers>{children}</Providers>
       </body>
     </html>

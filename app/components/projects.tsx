@@ -31,6 +31,7 @@ function ProjectCard({ project }: ProjectCardProps): ReactElement {
           src={project.image}
           alt={project.title}
           fill
+          placeholder="blur"
           sizes="(max-width: 768px) 100vw, 50vw"
           className="object-cover"
         />
