@@ -1,7 +1,5 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import React, {
   useCallback,
   useEffect,
@@ -18,25 +16,53 @@ interface IndicatorState {
 const INDICATOR_INSET = 6;
 
 const NAV_LINKS = [
-  { href: "/about", label: "About" },
-  { href: "/timeline", label: "Timeline" },
-  { href: "/projects", label: "Projects" },
+  { href: "#about", label: "About" },
+  { href: "#timeline", label: "Timeline" },
+  { href: "#projects", label: "Projects" },
 ];
 
 export default function Navigation(): React.ReactElement {
-  const pathname = usePathname();
   const containerRef = useRef<HTMLDivElement | null>(null);
   const linkRefs = useRef<(HTMLAnchorElement | null)[]>([]);
   const [indicator, setIndicator] = useState<IndicatorState | null>(null);
 
-  const activeIndex = useMemo(() => {
-    const current =
-      pathname?.endsWith("/") && pathname.length > 1
-        ? pathname.slice(0, -1)
-        : pathname ?? "/";
+  const [activeHash, setActiveHash] = useState<string>("#about");
 
-    return NAV_LINKS.findIndex((link) => link.href === current);
-  }, [pathname]);
+  const activeIndex = useMemo(() => {
+    return NAV_LINKS.findIndex((link) => link.href === activeHash);
+  }, [activeHash]);
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash || "#about";
+      setActiveHash(hash);
+    };
+
+    const handleScroll = () => {
+      const sections = ["about", "timeline", "projects"];
+      const scrollPosition = window.scrollY + window.innerHeight / 2;
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveHash(`#${section}`);
+            break;
+          }
+        }
+      }
+    };
+
+    handleHashChange();
+    window.addEventListener("hashchange", handleHashChange);
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("hashchange", handleHashChange);
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const setIndicatorFromIndex = useCallback((index: number | null) => {
     const container = containerRef.current;
@@ -111,7 +137,7 @@ export default function Navigation(): React.ReactElement {
           const isActive = index === activeIndex;
 
           return (
-            <Link
+            <a
               key={link.href}
               href={link.href}
               ref={(element) => {
@@ -119,12 +145,21 @@ export default function Navigation(): React.ReactElement {
               }}
               onMouseEnter={handleMouseEnter(index)}
               onFocus={handleMouseEnter(index)}
+              onClick={(e) => {
+                e.preventDefault();
+                const target = document.querySelector(link.href);
+                if (target) {
+                  target.scrollIntoView({ behavior: "smooth" });
+                  window.history.pushState(null, "", link.href);
+                  setActiveHash(link.href);
+                }
+              }}
               className={`relative z-10 flex-1 whitespace-nowrap px-4 py-1.5 text-center text-xs uppercase tracking-[0.12em] transition-colors duration-200 ${
                 isActive ? "text-white" : "text-white/60 hover:text-white/80"
               }`}
             >
               {link.label}
-            </Link>
+            </a>
           );
         })}
       </div>
