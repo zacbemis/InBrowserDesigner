@@ -61,11 +61,11 @@ interface TimelineProps {
 export default function Timeline({ experiences }: TimelineProps): ReactElement {
   return (
     <div className="relative w-full max-w-6xl">
-      {/* Vertical center line */}
-      <div className="absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2 bg-white/20" />
+      {/* Vertical center line - hidden on mobile */}
+      <div className="absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2 bg-white/20 hidden md:block" />
 
       {/* Timeline items */}
-      <div className="space-y-16 py-8">
+      <div className="space-y-8 py-8 md:space-y-16">
         {experiences.map((experience, index) => {
           const side = index % 2 === 0 ? "left" : "right";
           const isLeft = side === "left";
@@ -73,33 +73,46 @@ export default function Timeline({ experiences }: TimelineProps): ReactElement {
           return (
             <div
               key={experience.id}
-              className={`relative flex items-center gap-8 ${
-                isLeft ? "flex-row" : "flex-row-reverse"
-              }`}
+              className="relative"
             >
-              {/* Card */}
-              <div className="w-1/2 flex justify-center">
+              {/* Mobile layout: single column */}
+              <div className="flex flex-col items-center gap-3 md:hidden">
+                <p className="text-sm uppercase tracking-[0.15em] text-white/70">
+                  {experience.date}
+                </p>
                 <ExperienceCard experience={experience} />
               </div>
 
-              {/* Branch line and dot */}
-              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-                {/* Center dot */}
-                <div className="h-3 w-3 rounded-full border-2 border-white/40 bg-white/20" />
-                
-                {/* Horizontal branch line */}
-                <div
-                  className={`absolute top-1/2 h-px w-16 -translate-y-1/2 bg-white/20 ${
-                    isLeft ? "right-full" : "left-full"
-                  }`}
-                />
-              </div>
+              {/* Desktop layout: alternating sides */}
+              <div
+                className={`hidden md:flex items-center gap-8 ${
+                  isLeft ? "flex-row" : "flex-row-reverse"
+                }`}
+              >
+                {/* Card */}
+                <div className="w-1/2 flex justify-center">
+                  <ExperienceCard experience={experience} />
+                </div>
 
-              {/* Date on opposite side */}
-              <div className="w-1/2 flex justify-center">
-                <p className="text-sm uppercase tracking-[0.15em] text-white/70 sm:text-base">
-                  {experience.date}
-                </p>
+                {/* Branch line and dot */}
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                  {/* Center dot */}
+                  <div className="h-3 w-3 rounded-full border-2 border-white/40 bg-white/20" />
+                  
+                  {/* Horizontal branch line */}
+                  <div
+                    className={`absolute top-1/2 h-px w-16 -translate-y-1/2 bg-white/20 ${
+                      isLeft ? "right-full" : "left-full"
+                    }`}
+                  />
+                </div>
+
+                {/* Date on opposite side */}
+                <div className="w-1/2 flex justify-center">
+                  <p className="text-sm uppercase tracking-[0.15em] text-white/70 sm:text-base">
+                    {experience.date}
+                  </p>
+                </div>
               </div>
             </div>
           );
