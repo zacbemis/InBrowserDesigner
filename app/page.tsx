@@ -66,6 +66,12 @@ const projects: Project[] = [
     title: "Car Repair App",
     description:
       "Directed a team of 5 engineers in an Agile environment, establishing the development workflow, Git strategy, and code review process to streamline collaboration. Implemented server-side rendering, reducing load times by 40% and improving user experience. Utilized JWT authentication, allowing for stateless user management and improved scalability.",
+    technologies: [
+      { name: "React", Icon: SiReact },
+      { name: "TypeScript", Icon: SiTypescript },
+      { name: "Node.js", Icon: SiNodedotjs },
+      { name: "MongoDB", Icon: SiMongodb },
+    ],
     githubUrl:
       "https://github.com/alirdin30/CSC-131-Pit-Stop-Programmers-Spring-2025",
   },
@@ -75,6 +81,11 @@ const projects: Project[] = [
     title: "SystemBoard",
     description:
       "Designed a scalable architecture capable of reliably serving thousands of concurrent users. Integrated and optimized a Node.js server, speeding up API response times by 25%.",
+    technologies: [
+      { name: "React Native", Icon: SiReact },
+      { name: "Node.js", Icon: SiNodedotjs },
+      { name: "PostgreSQL", Icon: SiPostgresql },
+    ],
     websiteUrl: "https://systemboard.io",
   },
   {
@@ -83,6 +94,10 @@ const projects: Project[] = [
     title: "Spotlight CLI",
     description:
       "Created a CLI in Go to communicate with a local LLM through the Ollama API. Automated LLM workflows and file management with Bash scripts, improving developer efficiency by 10%.",
+    technologies: [
+      { name: "Go", Icon: SiGo },
+      { name: "Linux", Icon: SiLinux },
+    ],
     githubUrl: "https://github.com/zacbemis/Spotlight",
   },
   {
@@ -91,6 +106,7 @@ const projects: Project[] = [
     title: "Diamond-Man Platformer",
     description:
       "Developed a game engine for a 2D platformer in Java, tested by 50+ users. Utilized OOP design principles to create player controls, a scoring system, and collision detection.",
+    technologies: [{ name: "Java", Icon: SiOpenjdk }],
     githubUrl: "https://github.com/zacbemis/Java2DGame",
   },
   {
@@ -99,6 +115,10 @@ const projects: Project[] = [
     title: "Game of Life",
     description:
       "Implemented Conway's Game of Life in Java using TDD, OOP/OOD principles and real time GPU rendering through the use of OpenGL. This resulted in a performant renderer which allowed for real time updates on a 1000 by 1000 grid.",
+    technologies: [
+      { name: "Java", Icon: SiOpenjdk },
+      { name: "OpenGL", Icon: SiOpengl },
+    ],
     githubUrl: "https://github.com/zacbemis/GAME_OF_LIFE",
   },
   {
@@ -107,6 +127,7 @@ const projects: Project[] = [
     title: "Stock Market Predictor",
     description:
       "Implemented machine learning algorithms like random forest and linear regression in Python using Scikit-learn, NumPy, and Pandas to forecast stock trends with visual insights from Matplotlib and Seaborn. Increased model accuracy by 10% through iterating feature sets and combining and optimizing ML algorithms.",
+    technologies: [{ name: "Python", Icon: SiPython }],
     githubUrl: "https://github.com/zacbemis/VFA",
   },
 ];
@@ -137,8 +158,9 @@ export default function HomePage() {
             I am a software engineer and computer science student at California
             State University, Sacramento. Software engineering gives me the
             outlet to be creative and solve problems in an ever expanding field.
-            I also love studying philosophy, math, and physics. In my spare time
-            I enjoy reading, rock climbing, and cycling.
+            I also love studying philosophy, computer science, math, and
+            physics. In my spare time I enjoy reading, rock climbing, and
+            cycling.
           </p>
 
           <div className="my-6 h-px w-full bg-white/20" />
@@ -195,7 +217,7 @@ export default function HomePage() {
       {/* Projects Section */}
       <section
         id="projects"
-        className="flex min-h-screen flex-col items-center justify-center px-4 py-20"
+        className="flex min-h-screen flex-col items-center justify-center px-4 pb-30 pt-20"
       >
         <Projects projects={projects} />
       </section>

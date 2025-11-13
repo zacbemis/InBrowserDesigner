@@ -16,7 +16,7 @@ export default function WeatherToggle({
   return (
     <button
       onClick={onToggle}
-      className="fixed left-3 top-3 z-[60] flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/80 shadow-lg transition-all hover:text-white hover:scale-110"
+      className="fixed left-3 top-3 z-[60] hidden h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/80 shadow-lg transition-all hover:scale-110 hover:text-white md:flex"
       style={{
         background: "rgba(255, 255, 255, 0.05)",
         backdropFilter: "blur(20px)",
