@@ -11,7 +11,6 @@ import {
   SiReact,
   SiNextdotjs,
   SiNodedotjs,
-  SiSpring,
   SiOpengl,
   SiMongodb,
   SiPostgresql,
@@ -20,6 +19,7 @@ import {
   SiDocker,
   SiAmazon,
   SiLinux,
+  SiTailwindcss,
 } from "react-icons/si";
 import ecaMobile from "./public/assets/ECAMobile.png";
 import carRepair from "./public/assets/CarRepair.png";
@@ -175,14 +175,12 @@ export default function HomePage() {
               { name: "Python", Icon: SiPython },
               { name: "JavaScript", Icon: SiJavascript },
               { name: "TypeScript", Icon: SiTypescript },
-              { name: "Go", Icon: SiGo },
+              { name: "Tailwind CSS", Icon: SiTailwindcss },
               { name: "C", Icon: SiC },
               { name: "React", Icon: SiReact },
               { name: "Next.js", Icon: SiNextdotjs },
               { name: "Node.js", Icon: SiNodedotjs },
               { name: "React Native", Icon: SiReact },
-              { name: "Spring Boot", Icon: SiSpring },
-              { name: "OpenGL", Icon: SiOpengl },
               { name: "MongoDB", Icon: SiMongodb },
               { name: "PostgreSQL", Icon: SiPostgresql },
               { name: "SQLite", Icon: SiSqlite },
