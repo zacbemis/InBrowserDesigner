@@ -20,6 +20,7 @@ import {
   SiAmazon,
   SiLinux,
   SiTailwindcss,
+  SiRust,
 } from "react-icons/si";
 import ecaMobile from "./public/assets/ECAMobile.png";
 import carRepair from "./public/assets/CarRepair.png";
@@ -29,6 +30,7 @@ import diamondMan from "./public/assets/diamondMan.png";
 import gameOfLife from "./public/assets/gameOfLife.png";
 import pythonML from "./public/assets/pythonML.png";
 import CSUS from "./public/assets/CSUS.png";
+import briefLang from "./public/assets/briefLang.png";
 
 export const metadata: Metadata = {
   title: "Portfolio | Zac Bemis",
@@ -129,6 +131,15 @@ const projects: Project[] = [
       "Implemented machine learning algorithms like random forest and linear regression in Python using Scikit-learn, NumPy, and Pandas to forecast stock trends with visual insights from Matplotlib and Seaborn. Increased model accuracy by 10% through iterating feature sets and combining and optimizing ML algorithms.",
     technologies: [{ name: "Python", Icon: SiPython }],
     githubUrl: "https://github.com/zacbemis/VFA",
+  },
+  {
+    id: 7,
+    image: briefLang,
+    title: "Brief",
+    description:
+      "Utilized Rust to create the interpretor for my own language, Brief. I implemented a lexer, parser, AST, bytecode, virtual machine and REPL. I used TDD to ensure the interpreter was correct and efficient.",
+    technologies: [{ name: "Rust", Icon: SiRust }],
+    githubUrl: "https://github.com/zacbemis/Brief",
   },
 ];
 
