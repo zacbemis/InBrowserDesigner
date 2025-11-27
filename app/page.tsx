@@ -47,7 +47,7 @@ const experiences: Experience[] = [
     company: "California State University, Sacramento",
     date: "Aug 2022 - Dec 2026",
     description:
-      "Studied computer science at California State University, Sacramento and maintained a 3.5 GPA. Member of the Data Structures and Algorithms club and climbing club.",
+      "Studied computer science at California State University, Sacramento and maintained a 3.5 GPA. Semi-professional indoor rock climbing and criterium road cycling throughout my time at college.",
   },
   {
     id: 2,
